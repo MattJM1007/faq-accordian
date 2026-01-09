@@ -184,6 +184,7 @@ body {
   --flow-space: var(--space-md);
 
   border-radius: 1rem;
+  box-shadow: 0 2rem 3.5rem hsl(from var(--clr-primary-950) h s l / 0.1);
 }
 
 .faq details {
@@ -251,7 +252,10 @@ body {
 .attribution {
   font-size: 11px;
   text-align: center;
-  margin-block-start: 1rem;
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  left: 0;
 }
 .attribution a {
   color: var(--clr-accent-1);
