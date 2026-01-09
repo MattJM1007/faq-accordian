@@ -233,9 +233,12 @@ body {
   content: var(--summary-icon);
 }
 
-.faq details summary:hover {
+.faq details summary:hover,
+.faq details summary:focus-visible {
   cursor: pointer;
   color: var(--clr-accent-1);
+  outline-color: var(--clr-primary-600);
+  outline-offset: 2px;
 }
 
 .faq details summary::marker {
