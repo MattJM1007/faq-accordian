@@ -44,7 +44,7 @@
   --fs-lg: 2rem; /* 32px */
   --fs-xl: 3.5rem; /* 56px */
 
-  --fs-title: clamp(2rem, 1.75rem + 1.1vw, 3.5rem);
+  --fs-title: clamp(2rem, 0.94rem + 4.69vw, 3.5rem);
 
   /* Font Weights */
   --fw-regular: 400;
@@ -154,11 +154,13 @@ body {
 
 .title {
   font-size: var(--fs-title);
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
 }
 
 .title::before {
   content: url("./assets/images/icon-star.svg");
-  margin-inline-end: var(--space-md);
 }
 
 .padding-md-xl {
