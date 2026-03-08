@@ -1,80 +1,67 @@
-# Frontend Mentor - FAQ accordion solution
+# FAQ Accordion
 
-This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+A CSS-only FAQ accordion built with native HTML elements and animated without any JavaScript.
 
-## Table of contents
+![App Screenshot](./faq-desktop.png)
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+[Live Demo](https://mattjm1007.github.io/faq-accordian/) · [View Code](https://github.com/MattJM1007/faq-accordian)
+
+---
 
 ## Overview
 
-### The challenge
+An FAQ component where users can expand and collapse answers. The accordion is built entirely with HTML and CSS — no JavaScript required. Each item opens and closes natively using the `<details>` and `<summary>` elements, with smooth animations handled by CSS.
 
-Users should be able to:
+---
 
-- Hide/Show the answer to a question when the question is clicked
-- Navigate the questions and hide/show answers using keyboard navigation alone
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+## Features
 
-### Screenshot
+- Expand and collapse FAQ items
+- Smooth open and close animation
+- Keyboard accessible out of the box
+- No JavaScript
 
-![](./screenshot.png)
+---
 
-### Links
+## Technical Highlights
 
-- Solution URL: [Github](https://github.com/MattJM1007/faq-accordian)
-- Live Site URL: [Click me](https://mattjm1007.github.io/faq-accordian/)
+**CSS-Only Animation with `interpolate-size`**
 
-## My process
+Animating the height of `<details>` elements has historically required JavaScript to work around the fact that CSS can't transition to `height: auto`. This project uses the modern CSS `interpolate-size: allow-keywords` property to animate the opening and closing smoothly without any JavaScript.
 
-### Built with
+**Semantic HTML with `<details>` and `<summary>`**
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Mobile-first workflow
+Rather than building a custom accordion with `div`s and JavaScript click handlers, this project uses the native `<details>` and `<summary>` HTML elements. This gives keyboard accessibility and screen reader support without any ARIA attributes or event listeners needed.
 
-### What I learned
+---
 
-My main takeaway that I learned here is animating the details/summary using the :details-content pseudo element. The overflow hidden is important here to make the animation smooth, otherwise it would be jumpy due to the content-visibility being a descrete animation.
+## Tech Stack
 
-```css
-.faq details::details-content {
-  --animation-time: 500ms;
+- Semantic HTML (`<details>`, `<summary>`)
+- CSS (`interpolate-size`, transitions, custom properties)
 
-  color: var(--clr-primary-600);
-  block-size: 0;
-  overflow: hidden;
+---
 
-  /* prettier-ignore */
-  transition: 
-    block-size var(--animation-time) ease-out, 
-    content-visibility var(--animation-time) allow-discrete
-  ;
-}
+## Getting Started
 
-.faq details[open]::details-content {
-  block-size: auto;
-}
+```bash
+git clone https://github.com/MattJM1007/faq-accordian
 ```
 
-### Continued development
+This is a vanilla HTML/CSS project with no build step. Clone the repo and open `index.html` in your browser.
 
-Always looking to improve CSS architecture and organization. Want to learn more about transitions and animations to elevate my work!
+---
 
-### Useful resources
+## Challenges & What I Learned
 
-- [Animate Details and Summary with just CSS](https://youtu.be/Vzj3jSUbMtI?si=Ka7jkC6ff-NOAOnM) - This video by Kevin Powell helped me to learn how to animate the details as a progressive enhancement
+**Animating `<details>` without JavaScript**
 
-## Author
+The standard approach to animating accordion height requires JavaScript to calculate and set explicit pixel heights. Finding `interpolate-size: allow-keywords` as a CSS-native solution was the key challenge here. It taught me that modern CSS can do a lot without the need for JavaScript.
 
-- Frontend Mentor - [@MattJM1007](https://www.frontendmentor.io/profile/MattJM1007)
+---
+
+## What I'd Improve
+
+**Browser support fallback**
+
+`interpolate-size` is currently only supported in modern Chromium-based browsers. While the functionality of opening and closing the accordion still works in other browsers, I would add a fallback so the accordion still animates smoothly in Firefox and Safari. This would make the component production-ready across all browsers.
